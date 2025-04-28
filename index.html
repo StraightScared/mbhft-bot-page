@@ -100,10 +100,12 @@
     .addEventListener("submit", (e) => {
       e.preventDefault();
       Telegram.WebApp.sendData(JSON.stringify({
-        cmd:    "orderform",                    // ← this key ties it back
-        symbol: document.getElementById("symbol").value,
-        side:   document.getElementById("side").value,   // if you added a side select
-        qty:    parseFloat(document.getElementById("qty").value),
+        id:    "orderform",
+        data: {
+          symbol: document.getElementById("symbol").value,
+          side:   document.getElementById("side").value,
+          qty:    parseFloat(document.getElementById("qty").value),
+        }
       }));
     });  
   </script>
